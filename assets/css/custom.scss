@@ -349,6 +349,7 @@ body.sol-night .search-input {
 }
 
 body.sol-night .main-content {
+  background-color: #1a1a2e !important;
   color: #c8c8d0;
 }
 
@@ -374,18 +375,19 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-// Outer highlight wrapper: same dark warm tint as nav active background
+// Outer highlight wrapper: same rgba as nav active -- will composite correctly
+// now that .main-content has a dark background (#1a1a2e)
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
 body.sol-night .main-content figure.highlight {
-  background-color: rgba(232, 156, 138, 0.25) !important;
-  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.4) !important;
+  background-color: rgba(232, 156, 138, 0.3) !important;
+  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.5) !important;
 }
 
 // Pre and code: same tint, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
-  background-color: rgba(232, 156, 138, 0.25) !important;
+  background-color: rgba(232, 156, 138, 0.3) !important;
   border: none !important;
   box-shadow: none !important;
 }
