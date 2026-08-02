@@ -2,9 +2,299 @@
 ---
 
 // Signs of life -- custom styles
-// Minimal overrides only -- header banner added via prologue content
 
-// Slightly wider content area
-.main-content {
-  max-width: 900px;
+// ============================================================
+// 1. RUST NAVIGATION COLOURS
+// Matches the deep terracotta rocks in the header image
+// ============================================================
+
+.nav-list .nav-list-link {
+  color: #8B3A2A;
+}
+
+.nav-list .nav-list-link:hover,
+.nav-list .nav-list-link:focus {
+  color: #6B2A1A;
+  text-decoration: underline;
+}
+
+.nav-list .nav-list-link.active {
+  color: #6B2A1A;
+  font-weight: 600;
+}
+
+.site-title {
+  color: #5A1F10;
+}
+
+.site-title:hover {
+  color: #8B3A2A;
+}
+
+.main-content a {
+  color: #8B3A2A;
+}
+
+.main-content a:hover,
+.main-content a:focus {
+  color: #6B2A1A;
+}
+
+.main-content a:visited {
+  color: #7B3320;
+}
+
+// ============================================================
+// 2. READING TOOLBAR
+// ============================================================
+
+#reading-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin-bottom: 24px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.rt-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rt-label {
+  color: #888;
+  font-size: 0.75rem;
+  margin-right: 4px;
+  user-select: none;
+}
+
+.rt-divider {
+  width: 1px;
+  height: 20px;
+  background: #ddd;
+  margin: 0 6px;
+}
+
+.rt-btn {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #444;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.rt-btn:hover {
+  background: #e8e8e8;
+}
+
+.rt-btn.rt-active {
+  background: #8B3A2A;
+  color: #fff;
+  border-color: #6B2A1A;
+}
+
+// ============================================================
+// 3. FONT MODES
+// ============================================================
+
+body.sol-font-serif .main-content,
+body.sol-font-serif .main-content p,
+body.sol-font-serif .main-content li,
+body.sol-font-serif .main-content blockquote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+// sans is the default -- no override needed
+
+// ============================================================
+// 4. SEPIA THEME
+// ============================================================
+
+body.sol-sepia {
+  background-color: #f4ecd8;
+}
+
+body.sol-sepia .side-bar {
+  background-color: #ecdfc4;
+  border-right-color: #d8c9a8;
+}
+
+body.sol-sepia .main-header {
+  background-color: #f4ecd8;
+  border-bottom-color: #d8c9a8;
+}
+
+body.sol-sepia .main-content {
+  color: #4a3828;
+}
+
+body.sol-sepia .main-content h1,
+body.sol-sepia .main-content h2,
+body.sol-sepia .main-content h3,
+body.sol-sepia .main-content h4 {
+  color: #3a2818;
+}
+
+body.sol-sepia .main-content code,
+body.sol-sepia .main-content pre {
+  background-color: #e8d8b8;
+  color: #4a3828;
+}
+
+body.sol-sepia .main-content blockquote {
+  border-left-color: #8B3A2A;
+  background-color: #ecdfc4;
+  color: #5c4838;
+}
+
+body.sol-sepia .main-content table thead {
+  background-color: #ecdfc4;
+}
+
+body.sol-sepia .main-content table td,
+body.sol-sepia .main-content table th {
+  border-color: #d8c9a8;
+}
+
+body.sol-sepia #reading-toolbar {
+  background: #ecdfc4;
+  border-color: #d8c9a8;
+}
+
+body.sol-sepia .rt-btn {
+  background: #f4ecd8;
+  border-color: #d8c9a8;
+  color: #4a3828;
+}
+
+body.sol-sepia .rt-btn:hover {
+  background: #ecdfc4;
+}
+
+// ============================================================
+// 5. NIGHT THEME
+// ============================================================
+
+body.sol-night {
+  background-color: #1a1a2e;
+}
+
+body.sol-night .side-bar {
+  background-color: #16213e;
+  border-right-color: #0f3460;
+}
+
+body.sol-night .nav-list .nav-list-link {
+  color: #e89c8a;
+}
+
+body.sol-night .nav-list .nav-list-link:hover,
+body.sol-night .nav-list .nav-list-link.active {
+  color: #f0b09a;
+}
+
+body.sol-night .site-title {
+  color: #e89c8a;
+}
+
+body.sol-night .main-header {
+  background-color: #16213e;
+  border-bottom-color: #0f3460;
+}
+
+body.sol-night .search-input {
+  background-color: #1a1a2e;
+  color: #c8c8d0;
+  border-color: #0f3460;
+}
+
+body.sol-night .main-content {
+  color: #c8c8d0;
+}
+
+body.sol-night .main-content h1,
+body.sol-night .main-content h2,
+body.sol-night .main-content h3,
+body.sol-night .main-content h4,
+body.sol-night .main-content h5,
+body.sol-night .main-content h6 {
+  color: #e8e8f0;
+}
+
+body.sol-night .main-content a {
+  color: #e89c8a;
+}
+
+body.sol-night .main-content a:hover {
+  color: #f0b09a;
+}
+
+body.sol-night .main-content code {
+  background-color: #0f3460;
+  color: #e89c8a;
+}
+
+body.sol-night .main-content pre {
+  background-color: #0d1b35;
+  border-color: #0f3460;
+}
+
+body.sol-night .main-content pre code {
+  background-color: transparent;
+  color: #c8c8d0;
+}
+
+body.sol-night .main-content blockquote {
+  border-left-color: #e89c8a;
+  background-color: #16213e;
+  color: #b0b0c0;
+}
+
+body.sol-night .main-content table thead {
+  background-color: #16213e;
+}
+
+body.sol-night .main-content table tr:nth-child(even) {
+  background-color: #1e2a40;
+}
+
+body.sol-night .main-content table td,
+body.sol-night .main-content table th {
+  border-color: #0f3460;
+  color: #c8c8d0;
+}
+
+body.sol-night .main-content hr {
+  border-color: #0f3460;
+}
+
+body.sol-night #reading-toolbar {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+body.sol-night .rt-btn {
+  background: #1a1a2e;
+  border-color: #0f3460;
+  color: #c8c8d0;
+}
+
+body.sol-night .rt-btn:hover {
+  background: #0f3460;
+}
+
+body.sol-night .rt-label {
+  color: #888;
+}
+
+body.sol-night .rt-divider {
+  background: #0f3460;
 }

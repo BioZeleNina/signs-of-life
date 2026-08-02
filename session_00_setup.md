@@ -14,8 +14,8 @@ It takes approximately 20 minutes.*
 ### MISSION BRIEFING
 
 You have been assigned to Survey Mission XB-7734-DELTA as a junior
-scientist. The mission briefing is in `prologue.md`. Read it
-first.
+scientist. The mission briefing is in the
+[prologue]({{ site.baseurl }}/). Read it first.
 
 Before departure, every crew member must verify that their equipment
 is functional. For this mission, your primary equipment is:

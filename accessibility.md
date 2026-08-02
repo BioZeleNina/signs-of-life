@@ -17,8 +17,24 @@ All session documents are plain Markdown files. They can be:
 - Read directly on GitHub as formatted text
 - Read as plain text in any editor or terminal
 - Read aloud by screen readers and assistive technology
-- Displayed in light mode, dark mode, or sepia mode via the GitHub
-  Pages theme switcher (button at the top of each page)
+
+### Reading toolbar
+
+Every page on the course website has a reading toolbar at the top of
+the content area with the following options:
+
+**Font:** Switch between Sans-serif (default, clean and screen-optimised)
+and Serif (Georgia, easier for some readers).
+
+**Theme:** Switch between three colour themes:
+- **White** -- default light background
+- **Sepia** -- warm parchment tones, lower contrast, easier on the eyes
+  for extended reading
+- **Night** -- dark navy background with light text, for low-light
+  environments
+
+Your font and theme choices are saved automatically and persist between
+pages and between browser sessions.
 
 No essential information is conveyed through colour alone. Every image
 and diagram includes a plain text description.
