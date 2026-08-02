@@ -375,21 +375,25 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-// Outer highlight wrapper: same rgba as nav active -- will composite correctly
-// now that .main-content has a dark background (#1a1a2e)
+// Code boxes: solid colour matching nav active highlight tone
+// Solid avoids rgba compositing on wrong background
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
 body.sol-night .main-content figure.highlight {
-  background-color: rgba(232, 156, 138, 0.3) !important;
-  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.5) !important;
+  background-color: #3d2c38 !important;
+  box-shadow: 0 0 0 1px #6a4a58 !important;
 }
 
-// Pre and code: same tint, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
-  background-color: rgba(232, 156, 138, 0.3) !important;
+  background-color: #3d2c38 !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+body.sol-night .main-content code {
+  background-color: #3d2c38 !important;
+  color: #e89c8a;
 }
 
 // Remove vertical divider between rouge gutter and code columns
