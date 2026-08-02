@@ -85,28 +85,11 @@
 }
 
 // Heading anchor link icons (chain icon on hover)
-// Try all possible just-the-docs selectors across versions
-.anchor-heading,
-a.anchor-heading,
-.heading-anchor,
-.anchor-link {
-  color: #8B3A2A !important;
-}
-
-.anchor-heading a,
-.heading-anchor a {
-  color: #8B3A2A !important;
-}
-
+// SVG uses <use> shadow DOM so fill overrides don't work
+// Use filter to convert the purple to rust instead
 .anchor-heading svg,
-.anchor-heading svg path,
-.anchor-heading svg use,
-.anchor-heading svg *,
-.heading-anchor svg,
-.heading-anchor svg path,
-.heading-anchor svg * {
-  fill: #8B3A2A !important;
-  color: #8B3A2A !important;
+.heading-anchor svg {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(54%) saturate(600%) hue-rotate(335deg) brightness(85%);
 }
 
 // ============================================================
@@ -258,9 +241,14 @@ body.sol-sepia .main-content table.rouge-table {
 
 body.sol-sepia .main-content .rouge-table tr,
 body.sol-sepia .main-content .rouge-table td,
+body.sol-sepia .main-content .highlight td,
+body.sol-sepia .main-content .highlight tr,
+body.sol-sepia .main-content .highlight th,
 body.sol-sepia .main-content .rouge-table tbody tr:nth-child(even) {
   background-color: transparent !important;
   border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 body.sol-sepia .main-content blockquote {
@@ -385,9 +373,14 @@ body.sol-night .main-content table.rouge-table {
 
 body.sol-night .main-content .rouge-table tr,
 body.sol-night .main-content .rouge-table td,
+body.sol-night .main-content .highlight td,
+body.sol-night .main-content .highlight tr,
+body.sol-night .main-content .highlight th,
 body.sol-night .main-content .rouge-table tbody tr:nth-child(even) {
   background-color: transparent !important;
   border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 body.sol-night .main-content pre code {
