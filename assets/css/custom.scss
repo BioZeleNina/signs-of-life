@@ -251,6 +251,13 @@ body.sol-sepia .main-content .rouge-table tbody tr:nth-child(even) {
   border-bottom: none !important;
 }
 
+// Catch any remaining line borders in the highlight wrapper
+body.sol-sepia .main-content .highlight *,
+body.sol-sepia .main-content pre.highlight * {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
 body.sol-sepia .main-content blockquote {
   border-left-color: #8B3A2A;
   background-color: #ecdfc4;
@@ -364,11 +371,11 @@ body.sol-night .main-content pre.highlight {
   box-shadow: none !important;
 }
 
-// Remove rouge syntax highlighter row stripes
-body.sol-night .main-content .rouge-table,
-body.sol-night .main-content table.rouge-table {
-  border: none !important;
-  background-color: transparent !important;
+// Catch any remaining line borders in the highlight wrapper
+body.sol-night .main-content .highlight *,
+body.sol-night .main-content pre.highlight * {
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 body.sol-night .main-content .rouge-table tr,
@@ -390,8 +397,9 @@ body.sol-night .main-content pre code {
 
 body.sol-night .main-content blockquote {
   border-left-color: #e89c8a;
-  background-color: #16213e;
-  color: #b0b0c0;
+  background-color: #1e2d4a !important;
+  background-image: none !important;
+  color: #d0d0e0;
 }
 
 body.sol-night .main-content table thead {
