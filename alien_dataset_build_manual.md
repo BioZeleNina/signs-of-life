@@ -1,6 +1,6 @@
 ---
 title: "Alien dataset build manual"
-nav_order: 18
+nav_exclude: true
 ---
 
 # Alien dataset build manual

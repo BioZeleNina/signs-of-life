@@ -1,3 +1,8 @@
+---
+title: "Mission report template"
+nav_exclude: true
+---
+
 # Mission Report Template
 ## Survey Mission XB-7734-DELTA -- Final Transmission to Earth Command
 
