@@ -3,8 +3,8 @@
 
 title: "Signs of life"
 description: "A practical course in genomics and transcriptomics"
-baseurl: ""
-url: "https://BioZeleNina.github.io"
+baseurl: "/signs-of-life"
+url: "https://biozelenina.github.io"
 repository: "BioZeleNina/signs-of-life"
 
 # Theme
