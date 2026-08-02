@@ -8,18 +8,25 @@
 // Matches the deep terracotta rocks in the header image
 // ============================================================
 
+// Default link color
 .nav-list .nav-list-link {
   color: #8B3A2A;
 }
 
+// Hover state -- dark rust text, subtle rust tint background, no default gradient
 .nav-list .nav-list-link:hover,
 .nav-list .nav-list-link:focus {
-  color: #6B2A1A;
-  text-decoration: underline;
+  background-image: none !important;
+  background-color: rgba(139, 58, 42, 0.1);
+  color: #4a1a0a;
+  text-decoration: none;
 }
 
-.nav-list .nav-list-link.active {
-  color: #6B2A1A;
+// Active (current page) -- dark grey text, rust tint background, no default purple/gradient
+.nav-list .nav-list-item .nav-list-link.active {
+  background-image: none !important;
+  background-color: rgba(139, 58, 42, 0.12);
+  color: #2d2d2d;
   font-weight: 600;
 }
 
@@ -45,7 +52,16 @@
 }
 
 // ============================================================
-// 2. READING TOOLBAR
+// 2. BREADCRUMB
+// Hide parent/child breadcrumb -- sidebar already shows hierarchy
+// ============================================================
+
+.breadcrumb-nav {
+  display: none;
+}
+
+// ============================================================
+// 3. READING TOOLBAR
 // ============================================================
 
 #reading-toolbar {
@@ -122,7 +138,26 @@ body.sol-sepia {
   background-color: #f4ecd8;
 }
 
-body.sol-sepia .side-bar {
+body.sol-sepia .nav-list .nav-list-link {
+  color: #7B3320;
+}
+
+body.sol-sepia .nav-list .nav-list-link:hover,
+body.sol-sepia .nav-list .nav-list-link:focus {
+  background-image: none !important;
+  background-color: rgba(139, 58, 42, 0.15);
+  color: #3a1a0a;
+  text-decoration: none;
+}
+
+body.sol-sepia .nav-list .nav-list-item .nav-list-link.active {
+  background-image: none !important;
+  background-color: rgba(139, 58, 42, 0.18);
+  color: #2a1005;
+  font-weight: 600;
+}
+
+
   background-color: #ecdfc4;
   border-right-color: #d8c9a8;
 }
@@ -197,8 +232,18 @@ body.sol-night .nav-list .nav-list-link {
 }
 
 body.sol-night .nav-list .nav-list-link:hover,
-body.sol-night .nav-list .nav-list-link.active {
-  color: #f0b09a;
+body.sol-night .nav-list .nav-list-link:focus {
+  background-image: none !important;
+  background-color: rgba(232, 156, 138, 0.15);
+  color: #f0c8b8;
+  text-decoration: none;
+}
+
+body.sol-night .nav-list .nav-list-item .nav-list-link.active {
+  background-image: none !important;
+  background-color: rgba(232, 156, 138, 0.2);
+  color: #f0e0d8;
+  font-weight: 600;
 }
 
 body.sol-night .site-title {
