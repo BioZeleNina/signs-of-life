@@ -51,6 +51,34 @@
   color: #7B3320;
 }
 
+// Footer link ("Just the Docs")
+.site-footer a,
+.site-footer a:visited {
+  color: #8B3A2A;
+}
+
+.site-footer a:hover {
+  color: #6B2A1A;
+}
+
+// Nav expand/collapse arrow chevron
+.nav-list-expander svg {
+  fill: #8B3A2A;
+}
+
+.nav-list-expander:hover svg,
+.nav-list-expander:focus svg {
+  fill: #6B2A1A;
+}
+
+// Heading anchor link icons (chain icon on hover)
+.anchor-heading,
+.anchor-heading a,
+.anchor-heading svg {
+  color: #8B3A2A;
+  fill: #8B3A2A;
+}
+
 // ============================================================
 // 2. BREADCRUMB
 // Hide parent/child breadcrumb -- sidebar already shows hierarchy
@@ -183,6 +211,7 @@ body.sol-sepia .main-content code,
 body.sol-sepia .main-content pre {
   background-color: #e8d8b8;
   color: #4a3828;
+  border: 1px solid #c8b890;
 }
 
 body.sol-sepia .main-content blockquote {
@@ -290,7 +319,7 @@ body.sol-night .main-content code {
 
 body.sol-night .main-content pre {
   background-color: #0d1b35;
-  border-color: #0f3460;
+  border: 1px solid #2a4060;
 }
 
 body.sol-night .main-content pre code {
