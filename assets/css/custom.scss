@@ -62,21 +62,23 @@
 }
 
 // Nav expand/collapse arrow chevron
-.nav-list-expander svg {
-  fill: #8B3A2A;
+// just-the-docs SVG icons inherit color via currentColor
+.nav-list-expander {
+  color: #8B3A2A !important;
 }
 
-.nav-list-expander:hover svg,
-.nav-list-expander:focus svg {
-  fill: #6B2A1A;
+.nav-list-expander:hover,
+.nav-list-expander:focus {
+  color: #6B2A1A !important;
 }
 
 // Heading anchor link icons (chain icon on hover)
-.anchor-heading,
-.anchor-heading a,
-.anchor-heading svg {
-  color: #8B3A2A;
-  fill: #8B3A2A;
+.anchor-heading {
+  color: #8B3A2A !important;
+}
+
+.anchor-heading a {
+  color: #8B3A2A !important;
 }
 
 // ============================================================
@@ -208,10 +210,12 @@ body.sol-sepia .main-content h4 {
 }
 
 body.sol-sepia .main-content code,
-body.sol-sepia .main-content pre {
+body.sol-sepia .main-content pre,
+body.sol-sepia .main-content figure.highlight {
   background-color: #e8d8b8;
   color: #4a3828;
-  border: 1px solid #c8b890;
+  border: 1px solid #c8b890 !important;
+  box-shadow: none !important;
 }
 
 body.sol-sepia .main-content blockquote {
@@ -317,9 +321,11 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-body.sol-night .main-content pre {
+body.sol-night .main-content pre,
+body.sol-night .main-content figure.highlight {
   background-color: #0d1b35;
-  border: 1px solid #2a4060;
+  border: 1px solid #2a4060 !important;
+  box-shadow: none !important;
 }
 
 body.sol-night .main-content pre code {
