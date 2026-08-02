@@ -329,8 +329,17 @@ body.sol-night .site-title {
 }
 
 body.sol-night .main-header {
-  background-color: #16213e;
+  background-color: #16213e !important;
   border-bottom-color: #0f3460;
+}
+
+// Ensure no white elements leak in the header area
+body.sol-night .main-header * {
+  background-color: transparent;
+}
+
+body.sol-night .search-input-wrap {
+  background-color: #16213e !important;
 }
 
 body.sol-night .search-input {
@@ -365,18 +374,18 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-// Outer highlight wrapper: warm rust tint matching nav active highlight
+// Outer highlight wrapper: same dark warm tint as nav active background
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
 body.sol-night .main-content figure.highlight {
-  background-color: rgba(232, 156, 138, 0.12) !important;
-  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.3) !important;
+  background-color: rgba(232, 156, 138, 0.25) !important;
+  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.4) !important;
 }
 
-// Pre and code: same warm tint, no border
+// Pre and code: same tint, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
-  background-color: rgba(232, 156, 138, 0.12) !important;
+  background-color: rgba(232, 156, 138, 0.25) !important;
   border: none !important;
   box-shadow: none !important;
 }
