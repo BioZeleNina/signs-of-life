@@ -55,10 +55,24 @@
 .site-footer a,
 .site-footer a:visited {
   color: #8B3A2A;
+  text-decoration: none !important;
 }
 
 .site-footer a:hover {
   color: #6B2A1A;
+  text-decoration: none !important;
+}
+
+// Night mode footer link matches nav color
+body.sol-night .site-footer a,
+body.sol-night .site-footer a:visited {
+  color: #e89c8a !important;
+  text-decoration: none !important;
+}
+
+body.sol-night .site-footer a:hover {
+  color: #f0b09a !important;
+  text-decoration: none !important;
 }
 
 // Nav expand/collapse arrow chevron
@@ -293,18 +307,21 @@ body.sol-night .nav-list .nav-list-link {
 }
 
 body.sol-night .nav-list .nav-list-link:hover,
-body.sol-night .nav-list .nav-list-link:focus {
+body.sol-night .nav-list .nav-list-link:focus,
+body.sol-night .side-bar .nav-list .nav-list-item .nav-list-link:hover,
+body.sol-night .side-bar .nav-list .nav-list-item .nav-list-link:focus {
   background-image: none !important;
   background-color: rgba(232, 156, 138, 0.2) !important;
   color: #f5d8c8 !important;
   text-decoration: none;
 }
 
-body.sol-night .nav-list .nav-list-item .nav-list-link.active {
+body.sol-night .nav-list .nav-list-item .nav-list-link.active,
+body.sol-night .side-bar .nav-list .nav-list-item .nav-list-link.active {
   background-image: none !important;
-  background-color: rgba(232, 156, 138, 0.25) !important;
+  background-color: rgba(232, 156, 138, 0.3) !important;
   color: #f8ece4 !important;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 body.sol-night .site-title {
@@ -348,18 +365,18 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-// Outer highlight wrapper: lighter dark background + subtle frame via box-shadow
+// Outer highlight wrapper: warm rust tint matching nav active highlight
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
 body.sol-night .main-content figure.highlight {
-  background-color: #1e3050 !important;
-  box-shadow: 0 0 0 1px #3a5070 !important;
+  background-color: rgba(232, 156, 138, 0.12) !important;
+  box-shadow: 0 0 0 1px rgba(232, 156, 138, 0.3) !important;
 }
 
-// Pre and code: background only, no border
+// Pre and code: same warm tint, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
-  background-color: #1e3050 !important;
+  background-color: rgba(232, 156, 138, 0.12) !important;
   border: none !important;
   box-shadow: none !important;
 }
