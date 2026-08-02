@@ -220,42 +220,22 @@ body.sol-sepia .main-content h4 {
   color: #3a2818;
 }
 
+// Outer highlight wrapper: sepia background + sepia-toned frame via box-shadow
 body.sol-sepia .main-content .highlight,
 body.sol-sepia .main-content div.highlight,
-body.sol-sepia .main-content figure.highlight,
+body.sol-sepia .main-content figure.highlight {
+  background-color: #e8d8b8 !important;
+  box-shadow: 0 0 0 1px #c8b890 !important;
+}
+
+// Pre and code: background only, no border
 body.sol-sepia .main-content pre,
 body.sol-sepia .main-content pre.highlight,
 body.sol-sepia .main-content code {
   background-color: #e8d8b8 !important;
   color: #4a3828 !important;
-  border: 1px solid #c8b890 !important;
+  border: none !important;
   box-shadow: none !important;
-}
-
-// Remove rouge syntax highlighter row stripes
-body.sol-sepia .main-content .rouge-table,
-body.sol-sepia .main-content table.rouge-table {
-  border: none !important;
-  background-color: transparent !important;
-}
-
-body.sol-sepia .main-content .rouge-table tr,
-body.sol-sepia .main-content .rouge-table td,
-body.sol-sepia .main-content .highlight td,
-body.sol-sepia .main-content .highlight tr,
-body.sol-sepia .main-content .highlight th,
-body.sol-sepia .main-content .rouge-table tbody tr:nth-child(even) {
-  background-color: transparent !important;
-  border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-}
-
-// Catch any remaining line borders in the highlight wrapper
-body.sol-sepia .main-content .highlight *,
-body.sol-sepia .main-content pre.highlight * {
-  border-top: none !important;
-  border-bottom: none !important;
 }
 
 body.sol-sepia .main-content blockquote {
@@ -361,33 +341,20 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
+// Outer highlight wrapper: dark background + subtle frame via box-shadow
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
-body.sol-night .main-content figure.highlight,
+body.sol-night .main-content figure.highlight {
+  background-color: #0d1b35 !important;
+  box-shadow: 0 0 0 1px #2a4060 !important;
+}
+
+// Pre and code: background only, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
   background-color: #0d1b35 !important;
-  border: 1px solid #2a4060 !important;
-  box-shadow: none !important;
-}
-
-// Catch any remaining line borders in the highlight wrapper
-body.sol-night .main-content .highlight *,
-body.sol-night .main-content pre.highlight * {
-  border-top: none !important;
-  border-bottom: none !important;
-}
-
-body.sol-night .main-content .rouge-table tr,
-body.sol-night .main-content .rouge-table td,
-body.sol-night .main-content .highlight td,
-body.sol-night .main-content .highlight tr,
-body.sol-night .main-content .highlight th,
-body.sol-night .main-content .rouge-table tbody tr:nth-child(even) {
-  background-color: transparent !important;
   border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 body.sol-night .main-content pre code {
