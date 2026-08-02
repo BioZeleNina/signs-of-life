@@ -1,0 +1,19 @@
+---
+---
+
+// Signs of life -- custom styles
+
+// Full-width header banner image
+.site-header {
+  background-image: url('{{ "/assets/header.png" | relative_url }}');
+  background-size: cover;
+  background-position: center top;
+  min-height: 160px;
+  border-bottom: 2px solid $border-color;
+}
+
+// Hide the default logo/title in the header when banner is shown
+.site-header .site-title,
+.site-header .site-logo {
+  display: none;
+}

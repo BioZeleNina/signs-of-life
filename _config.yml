@@ -1,0 +1,40 @@
+# Signs of life -- GitHub Pages configuration
+# Jekyll with just-the-docs theme
+
+title: "Signs of life"
+description: "A practical course in genomics and transcriptomics"
+baseurl: ""
+url: "https://BioZeleNina.github.io"
+repository: "BioZeleNina/signs-of-life"
+
+# Theme
+remote_theme: just-the-docs/just-the-docs
+
+# Logo shown in the top-left of the sidebar
+logo: "/assets/header.png"
+
+# Colour scheme: light (default), dark
+color_scheme: light
+
+# Allow users to switch between light and dark mode
+enable_copy_code_button: true
+
+# Search
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+
+# Footer
+footer_content: "Signs of life &copy; Stockholm University. CC BY 4.0."
+
+# Exclude from site build
+exclude:
+  - download_data.sh
+  - Gemfile.lock
+  - "*.sh"
+
+# Plugins
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
