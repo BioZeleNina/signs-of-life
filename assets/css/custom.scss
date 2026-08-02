@@ -2,31 +2,9 @@
 ---
 
 // Signs of life -- custom styles
+// Minimal overrides only -- header banner added via prologue content
 
-// Full-width header banner image
-// just-the-docs uses .site-header for the top bar
-.site-header {
-  background-image: url('{{ "/assets/header.png" | relative_url }}');
-  background-size: cover;
-  background-position: center top;
-  min-height: 180px;
-  border-bottom: 1px solid #e7e7e7;
-  padding: 0;
-}
-
-// Push the site title and nav toggle down so they sit over the image
-.site-header .site-title {
-  color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-  padding-top: 140px;
-}
-
-// Make the header taller on mobile too
-@media (max-width: 800px) {
-  .site-header {
-    min-height: 120px;
-  }
-  .site-header .site-title {
-    padding-top: 80px;
-  }
+// Slightly wider content area
+.main-content {
+  max-width: 900px;
 }

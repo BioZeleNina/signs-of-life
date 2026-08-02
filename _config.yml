@@ -10,8 +10,6 @@ repository: "BioZeleNina/signs-of-life"
 # Theme
 remote_theme: just-the-docs/just-the-docs
 
-# Logo shown in the top-left of the sidebar
-logo: "/assets/header.png"
 
 # Colour scheme: light (default), dark
 color_scheme: light

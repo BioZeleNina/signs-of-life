@@ -4,6 +4,8 @@ nav_order: 1
 permalink: /
 ---
 
+![Signs of life course header -- a spaceship cockpit with an alien landscape and aurora visible through the viewport](assets/header.png)
+
 # Signs of life
 ## A practical course in genomics and transcriptomics
 
