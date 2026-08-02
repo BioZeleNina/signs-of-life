@@ -295,15 +295,15 @@ body.sol-night .nav-list .nav-list-link {
 body.sol-night .nav-list .nav-list-link:hover,
 body.sol-night .nav-list .nav-list-link:focus {
   background-image: none !important;
-  background-color: rgba(232, 156, 138, 0.15);
-  color: #f0c8b8;
+  background-color: rgba(232, 156, 138, 0.2) !important;
+  color: #f5d8c8 !important;
   text-decoration: none;
 }
 
 body.sol-night .nav-list .nav-list-item .nav-list-link.active {
   background-image: none !important;
-  background-color: rgba(232, 156, 138, 0.2);
-  color: #f0e0d8;
+  background-color: rgba(232, 156, 138, 0.25) !important;
+  color: #f8ece4 !important;
   font-weight: 600;
 }
 
@@ -348,18 +348,18 @@ body.sol-night .main-content code {
   color: #e89c8a;
 }
 
-// Outer highlight wrapper: dark background + subtle frame via box-shadow
+// Outer highlight wrapper: lighter dark background + subtle frame via box-shadow
 body.sol-night .main-content .highlight,
 body.sol-night .main-content div.highlight,
 body.sol-night .main-content figure.highlight {
-  background-color: #0d1b35 !important;
-  box-shadow: 0 0 0 1px #2a4060 !important;
+  background-color: #1e3050 !important;
+  box-shadow: 0 0 0 1px #3a5070 !important;
 }
 
 // Pre and code: background only, no border
 body.sol-night .main-content pre,
 body.sol-night .main-content pre.highlight {
-  background-color: #0d1b35 !important;
+  background-color: #1e3050 !important;
   border: none !important;
   box-shadow: none !important;
 }
