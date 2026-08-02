@@ -14,19 +14,19 @@
 }
 
 // Hover state -- dark rust text, subtle rust tint background, no default gradient
-.nav-list .nav-list-link:hover,
-.nav-list .nav-list-link:focus {
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link:focus {
   background-image: none !important;
-  background-color: rgba(139, 58, 42, 0.1);
-  color: #4a1a0a;
+  background-color: rgba(139, 58, 42, 0.1) !important;
+  color: #4a1a0a !important;
   text-decoration: none;
 }
 
 // Active (current page) -- dark grey text, rust tint background, no default purple/gradient
 .nav-list .nav-list-item .nav-list-link.active {
   background-image: none !important;
-  background-color: rgba(139, 58, 42, 0.12);
-  color: #2d2d2d;
+  background-color: rgba(139, 58, 42, 0.12) !important;
+  color: #2d2d2d !important;
   font-weight: 600;
 }
 
