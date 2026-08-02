@@ -1,6 +1,7 @@
 ---
 title: "Prologue"
 nav_order: 1
+permalink: /
 ---
 
 # Signs of life
