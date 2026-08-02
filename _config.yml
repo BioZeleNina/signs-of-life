@@ -24,7 +24,7 @@ search:
   previews: 3
 
 # Footer
-footer_content: "Signs of life &copy; Nina Truban&oacute;v&aacute;. CC BY 4.0."
+footer_content: "Signs of life &copy; Nina Trubanov&aacute;. CC BY 4.0."
 
 # Exclude from site build
 exclude:
