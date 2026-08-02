@@ -238,6 +238,13 @@ body.sol-sepia .main-content code {
   box-shadow: none !important;
 }
 
+// Remove vertical divider between rouge gutter and code columns
+body.sol-sepia .main-content table.rouge-table,
+body.sol-sepia .main-content table.rouge-table td {
+  border: none !important;
+  background-color: transparent !important;
+}
+
 body.sol-sepia .main-content blockquote {
   border-left-color: #8B3A2A;
   background-color: #ecdfc4;
@@ -355,6 +362,13 @@ body.sol-night .main-content pre.highlight {
   background-color: #0d1b35 !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+// Remove vertical divider between rouge gutter and code columns
+body.sol-night .main-content table.rouge-table,
+body.sol-night .main-content table.rouge-table td {
+  border: none !important;
+  background-color: transparent !important;
 }
 
 body.sol-night .main-content pre code {
