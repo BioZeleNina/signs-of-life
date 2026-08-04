@@ -193,7 +193,7 @@ avoiding p-hacking.
 
 **Sessions 9--10 -- Synthesis and transmission**
 Catch-up time. Q&A. Mission log and report drafting. Reflection.
-Optional: the alien egg hunt (details in `alien_egg_hunt.md`).
+Optional: the alien egg hunt (details in [the alien egg hunt](https://biozelenina.github.io/signs-of-life/alien_egg_hunt)).
 
 ---
 
@@ -294,7 +294,7 @@ export ARIADNE_PLAIN=0
 ## BEFORE SESSION 0
 
 Download the session materials from the course GitHub repository and
-follow the setup guide in `session_00_setup.md` before the first
+follow the setup guide in [session 0: setup](https://biozelenina.github.io/signs-of-life/session_00_setup) before the first
 session. The setup takes approximately 20 minutes and must be done at
 home beforehand.
 

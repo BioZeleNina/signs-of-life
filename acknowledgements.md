@@ -8,7 +8,7 @@ nav_order: 16
 ## Course design
 
 This course was designed and produced at Stockholm University by Nina
-Trubanova. The science is real. The planet is not.
+Trubanová. The science is real. The planet is not.
 
 ---
 
@@ -68,7 +68,7 @@ ARIADNE-7 wishes to note for the record that:
 
 ## Software acknowledgements
 
-See `references.md` for full citations of all tools used in course
+See [references and tool credits](https://biozelenina.github.io/signs-of-life/references) for full citations of all tools used in course
 data generation and student analyses.
 
 ---

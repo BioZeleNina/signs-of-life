@@ -459,3 +459,29 @@ body.sol-night .rt-label {
 body.sol-night .rt-divider {
   background: #0f3460;
 }
+
+// ============================================================
+// MOBILE HAMBURGER MENU -- rust colour
+// ============================================================
+
+.nav-trigger-label span,
+.nav-trigger-label span::before,
+.nav-trigger-label span::after {
+  background-color: #8B3A2A !important;
+}
+
+// ============================================================
+// READING TOOLBAR -- active button highlight in Sepia and Night
+// ============================================================
+
+body.sol-sepia .rt-btn.rt-active {
+  background-color: #7B3320 !important;
+  color: #f4ecd8 !important;
+  border-color: #5A1F10 !important;
+}
+
+body.sol-night .rt-btn.rt-active {
+  background-color: #e89c8a !important;
+  color: #1a1a2e !important;
+  border-color: #c07060 !important;
+}

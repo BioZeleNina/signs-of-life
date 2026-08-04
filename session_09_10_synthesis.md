@@ -168,7 +168,7 @@ is the time to submit them:
 ariadne easter_egg submit
 ```
 
-For hints and the quiz format, see `alien_egg_hunt.md`.
+For hints and the quiz format, see [the alien egg hunt](https://biozelenina.github.io/signs-of-life/alien_egg_hunt).
 
 ---
 

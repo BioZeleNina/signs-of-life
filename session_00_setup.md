@@ -73,7 +73,7 @@ makes your work verifiable.
 
 #### Step 1 -- Install Docker Desktop
 
-Follow the instructions in `docker_install_guide.md` for your
+Follow the instructions in [Docker installation guide](https://biozelenina.github.io/signs-of-life/docker_install_guide) for your
 operating system (Mac or Windows). The guide covers installation,
 common troubleshooting, and verifying the install.
 
@@ -85,13 +85,13 @@ success message.
 **On Mac -- open Terminal and run:**
 
 ```bash
-docker pull biozelenina/signs-of-life:latest
+docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 ```
 
 **On Windows -- open PowerShell and run:**
 
 ```powershell
-docker pull biozelenina/signs-of-life:latest
+docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 ```
 
 This downloads the course image. It is approximately 3 GB and may take
@@ -250,7 +250,7 @@ and try again. If the error persists, contact the course coordinator.
 
 **`ariadne hello` says "command not found":**
 Your container is from an old image that does not have ARIADNE-7.
-Exit with `exit`, run `docker pull biozelenina/signs-of-life:latest`
+Exit with `exit`, run `docker pull --platform linux/amd64 biozelenina/signs-of-life:latest`
 to update, and start again from Step 5.
 
 **The prompt shows `(base)` or `(aliensession)` instead of

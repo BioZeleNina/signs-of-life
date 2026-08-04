@@ -180,13 +180,13 @@ After installing Docker Desktop, pull the course image:
 **On Mac (Terminal):**
 
 ```bash
-docker pull biozelenina/signs-of-life:latest
+docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 ```
 
 **On Windows (PowerShell):**
 
 ```powershell
-docker pull biozelenina/signs-of-life:latest
+docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 ```
 
 This downloads approximately 3 GB. Then verify ARIADNE-7 is working:
@@ -206,7 +206,7 @@ docker run --rm biozelenina/signs-of-life:latest ariadne hello
 You should see a rainbow-coloured introduction from ARIADNE-7.
 
 If the `ariadne` command is not found, the image may be outdated.
-Pull again: `docker pull biozelenina/signs-of-life:latest`
+Pull again: `docker pull --platform linux/amd64 biozelenina/signs-of-life:latest`
 
 ---
 
