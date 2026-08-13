@@ -38,6 +38,19 @@
   color: #8B3A2A;
 }
 
+// ============================================================
+// HEADING COLOURS -- match body text in all modes
+// ============================================================
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: inherit !important;
+}
+
 .main-content a {
   color: #8B3A2A;
 }
@@ -231,12 +244,7 @@ body.sol-sepia .main-content {
   color: #4a3828;
 }
 
-body.sol-sepia .main-content h1,
-body.sol-sepia .main-content h2,
-body.sol-sepia .main-content h3,
-body.sol-sepia .main-content h4 {
-  color: #3a2818;
-}
+
 
 // Outer highlight wrapper: sepia background + sepia-toned frame via box-shadow
 body.sol-sepia .main-content .highlight,
@@ -357,14 +365,7 @@ body.sol-night .main-content {
   color: #c8c8d0;
 }
 
-body.sol-night .main-content h1,
-body.sol-night .main-content h2,
-body.sol-night .main-content h3,
-body.sol-night .main-content h4,
-body.sol-night .main-content h5,
-body.sol-night .main-content h6 {
-  color: #e8e8f0;
-}
+
 
 body.sol-night .main-content a {
   color: #e89c8a;
