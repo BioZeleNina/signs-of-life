@@ -147,7 +147,7 @@ cerevisiae* (baker's yeast). The commands and concepts are identical
 to what you will use on the alien data.
 
 All commands run inside the Docker container. Start it if you have not
-already done so (see `session_00_setup.md`).
+already done so (see [session 0: setup](https://biozelenina.github.io/signs-of-life/session_00_setup)).
 
 ```bash
 cd /work

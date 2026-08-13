@@ -113,7 +113,7 @@ Choose one:
   Accepted formats: MP4, MOV, or WebM.
 
 A template report is available in the course repository at
-[mission_report_template.md]({{ site.baseurl }}/templates/mission_report_template).
+[mission report template](https://biozelenina.github.io/signs-of-life/templates/mission_report_template).
 
 #### Reflection question (optional but encouraged)
 
@@ -155,7 +155,7 @@ mission log and mission report to review. You have one week to
 complete the review and return it. The peer review is done at home,
 not during a session.
 
-Use the peer review form in [peer_review_form.md]({{ site.baseurl }}/templates/peer_review_form). The form
+Use the peer review form in [peer review form](https://biozelenina.github.io/signs-of-life/templates/peer_review_form). The form
 will guide you through what to look for and how to give constructive
 feedback.
 

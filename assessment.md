@@ -89,4 +89,4 @@ exactly correct on the first attempt.
 Finding all five alien eggs earns access to a hidden lore file. The
 classified backstory of what actually happened to the two
 previous survey missions that declared this planet lifeless. This
-does not affect your grade. Details in `alien_egg_hunt.md`.
+does not affect your grade. Details in [the alien egg hunt](https://biozelenina.github.io/signs-of-life/alien_egg_hunt).

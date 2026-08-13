@@ -1,6 +1,7 @@
 ---
 title: "Session 0: setup"
 nav_order: 2
+has_toc: false
 ---
 
 # SESSION 0 -- Pre-departure equipment check
