@@ -429,7 +429,7 @@ ariadne submit --session 1
 > sensor log? Give the two frequencies in Hz, lower value first,
 > separated by a space."
 
-*Example format:* `400 600`
+*Example format:* `NNN NNN`
 
 You can only answer this correctly if you read and searched
 `sensor_log_aurora.txt` in Step 3 above.

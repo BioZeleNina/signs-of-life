@@ -42,7 +42,7 @@ often difficult to reproduce.
 
 Docker solves this by packaging an entire software environment -- the
 operating system, the tools, the libraries, the configuration -- into a
-single **image** that runs identically on any machine that has Docker
+single image that runs identically on any machine that has Docker
 installed.
 
 **Key concepts**
@@ -55,10 +55,10 @@ installed.
 
 In this course:
 - The **image** contains all the analysis tools you will use (FastQC,
-  SPAdes, samtools, salmon, ARIADNE-7, and more)
-- You run a **container** from the image at the start of each session
+  SPAdes, samtools, salmon, ARIADNE-7, and more).
+- You run a **container** from the image at the start of each session.
 - Your data and results live in a **volume-mounted folder** on your
-  own machine, so nothing is lost when the container stops
+  own machine, so nothing is lost when the container stops.
 
 **Why this matters for science**
 
@@ -80,25 +80,7 @@ common troubleshooting, and verifying the install.
 Return here once you can run `docker run --rm hello-world` and see the
 success message.
 
-#### Step 2 -- Pull the course image
-
-**On Mac -- open Terminal and run:**
-
-```bash
-docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
-```
-
-**On Windows -- open PowerShell and run:**
-
-```powershell
-docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
-```
-
-This downloads the course image. It is approximately 3 GB and may take
-several minutes depending on your connection speed. You only need to do
-this once.
-
-#### Step 3 -- Create your course data folder
+#### Step 2 -- Create your course data folder
 
 **On Mac:**
 
@@ -116,7 +98,7 @@ This is the folder where all your work will live. It is mounted into
 the container each time you run it, so your files persist between
 sessions.
 
-#### Step 4 -- Download the course data
+#### Step 3 -- Download the course data
 
 Clone the course repository and run the data download script:
 
@@ -163,7 +145,7 @@ created in Step 3.
 
 **Step 4d -- Return to PowerShell for all subsequent steps**
 
-Steps 5 onwards use `docker` commands, which work correctly in
+Steps 4 onwards use `docker` commands, which work correctly in
 PowerShell. Once the download is complete, you can close Git Bash and
 return to PowerShell for the rest of the setup.
 
@@ -171,7 +153,12 @@ This downloads all mission data and tutorial data files. It may take
 several minutes depending on your internet connection. A progress bar
 shows the download status for each file group.
 
-#### Step 5 -- Start the container
+#### Step 4 -- Start the container
+
+> **Before running any docker command:** make sure Docker Desktop is
+> open and the whale icon in your menu bar (Mac) or system tray
+> (Windows) is steady, not animated. If Docker Desktop is not running,
+> every docker command will fail with a "cannot connect" error.
 
 **On Mac:**
 
@@ -201,7 +188,7 @@ The container is running. You are ready.
 > (`The requested image's platform does not match...`) is expected and
 > harmless. The image runs under Rosetta emulation and works correctly.
 
-#### Step 6 -- Verify ARIADNE-7
+#### Step 5 -- Verify ARIADNE-7
 
 Inside the container:
 
@@ -214,9 +201,52 @@ ARIADNE-7 should introduce herself and display her current status.
 If the `ariadne` command is not found, check that your prompt shows
 `[ARIADNE-7 | work]#` and not `(base)` or `(aliensession)`. If it
 shows one of the latter, the container is from an old image. Exit
-with `exit` and pull the latest image in Step 2.
+with `exit` and pull the latest image in Step 1.
 
-#### Step 7 -- Exit the container
+
+---
+
+### WORKING WITH ARIADNE-7
+
+Once inside the container, use these commands to interact with ARIADNE-7:
+
+```bash
+ariadne hello           # introduction and overview
+ariadne status          # current mission objectives
+ariadne survey          # complete the field survey form (session 1)
+ariadne submit --session N   # submit your gate question answer
+ariadne hint --session N     # hint if you are completely stuck
+ariadne log             # view your mission log
+ariadne easter_egg submit    # attempt the alien egg hunt
+```
+
+**To exit the container:**
+
+```bash
+exit
+```
+
+Or press `Ctrl+D`. These are standard bash commands, not ARIADNE-7
+commands. You return to your normal terminal on your own machine.
+Everything you saved under `/work` persists.
+
+**If ARIADNE-7's rainbow output is difficult to read:**
+
+ARIADNE-7's output uses rainbow colours by default. If this causes
+accessibility difficulties or display issues, run:
+
+```bash
+export ARIADNE_PLAIN=1
+```
+
+All subsequent ARIADNE-7 output will be plain white text. This setting
+lasts for the current container session. To restore rainbow mode:
+
+```bash
+export ARIADNE_PLAIN=0
+```
+
+#### Step 6 -- Exit the container
 
 When you are done, type:
 
@@ -244,6 +274,12 @@ Make sure Docker Desktop is running (look for the whale icon in your
 menu bar or system tray). The container cannot start if Docker Desktop
 is not running.
 
+**"failed to connect to the docker API" or "dial unix ... no such file or directory":**
+Docker Desktop is not running. Open it from your Applications folder,
+wait for the whale icon in the menu bar to stop animating (about
+30--60 seconds), then try again. Every `docker` command requires
+Docker Desktop to be open first.
+
 **`docker pull` says "access denied" or "not found":**
 The image name must be exact. Check `biozelenina/signs-of-life:latest`
 and try again. If the error persists, contact the course coordinator.
@@ -251,7 +287,7 @@ and try again. If the error persists, contact the course coordinator.
 **`ariadne hello` says "command not found":**
 Your container is from an old image that does not have ARIADNE-7.
 Exit with `exit`, run `docker pull --platform linux/amd64 biozelenina/signs-of-life:latest`
-to update, and start again from Step 5.
+to update, and start again from Step 4.
 
 **The prompt shows `(base)` or `(aliensession)` instead of
 `[ARIADNE-7 | work]#`:**

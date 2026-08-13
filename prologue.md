@@ -123,17 +123,17 @@ end of the course, you will have both.
 This course covers eight active sessions (sessions 1--8), with sessions
 9 and 10 reserved for Q&A, catch-up, mission log and report drafting, and reflection.
 
-**Session 0 -- Equipment setup (home, before the course begins)**
+**Session 0 -- Equipment setup (home, before the course begins)**  
 Install Docker and verify the ship's computer ARIADNE-7 responds.
 
-**Session 1 -- The terminal and the file system**
+**Session 1 -- The terminal and the file system**  
 Why scientists use the command line. How files and directories are
 organised. The habits of reproducible computational science.
 
 Topics: bash, directories, navigation, file operations, text editing,
 downloading from GitHub, mission logging.
 
-**Session 2 -- Sequencing and quality control**
+**Session 2 -- Sequencing and quality control**  
 How sequencing works, from Sanger to long-read nanopore technology.
 What a FASTQ file is and what every part of its header means. How to
 assess data quality and trim adapters. You will discover, in this
@@ -142,14 +142,14 @@ session, what the ship's sequencer captured -- and it will not be ACGT.
 Topics: sequencing technologies, FASTQ format, quality scores, FastQC,
 adapter trimming, base composition, complementarity.
 
-**Session 3 -- Genome assembly**
+**Session 3 -- Genome assembly**  
 How overlapping reads become contiguous sequences. What assembly
 statistics mean. How to assess completeness.
 
 Topics: assembly algorithms, contigs, N50, coverage, SPAdes,
 seqkit stats.
 
-**Session 4 -- The genetic code**
+**Session 4 -- The genetic code**  
 What an open reading frame is. How to find genes in an assembled
 sequence. Why translating this genome with the standard genetic code
 produces complete nonsense, and how to work out what the actual code
@@ -158,7 +158,7 @@ is.
 Topics: ORFs, translation, genetic code, codon tables, GC content,
 codon usage bias.
 
-**Session 5 -- RNA-seq: mapping and expression**
+**Session 5 -- RNA-seq: mapping and expression**  
 What RNA sequencing measures. How to align RNA reads to a reference
 assembly. What read depth tells you about gene expression. First
 encounter with the transcriptome.
@@ -166,7 +166,7 @@ encounter with the transcriptome.
 Topics: RNA-seq, transcript quantification, minimap2, samtools,
 coverage, salmon.
 
-**Session 6 -- Differential expression**
+**Session 6 -- Differential expression**  
 How to compare expression between conditions. Why most genes do not
 change, and why the ones that do are the interesting ones. What the
 aurora is actually doing to this organism.
@@ -174,7 +174,7 @@ aurora is actually doing to this organism.
 Topics: differential expression, fold change, statistical testing,
 aurora-on vs aurora-off, biological interpretation.
 
-**Session 7 -- Population structure and variant calling**
+**Session 7 -- Population structure and variant calling**  
 What genetic variants are. How to call them across many individuals.
 How to use variant data to identify discrete groups. Why this organism
 appears to have more than two mating types -- and what the signal from
@@ -183,7 +183,7 @@ session 1 has to do with that.
 Topics: variant calling, VCF format, bcftools, PCA, clustering, mating
 types, population structure, resonance.
 
-**Session 8 -- Hypothesis testing and experimental design**
+**Session 8 -- Hypothesis testing and experimental design**  
 How to frame a biological question as a testable hypothesis. How to
 design a computational experiment that can answer it. What p-values
 actually mean. How to communicate uncertainty honestly.
@@ -191,7 +191,7 @@ actually mean. How to communicate uncertainty honestly.
 Topics: H0 and H1, t-tests, permutation tests, experimental design,
 avoiding p-hacking.
 
-**Sessions 9--10 -- Synthesis and transmission**
+**Sessions 9--10 -- Synthesis and transmission**  
 Catch-up time. Q&A. Mission log and report drafting. Reflection.
 Optional: the alien egg hunt (details in [the alien egg hunt](https://biozelenina.github.io/signs-of-life/alien_egg_hunt)).
 
@@ -241,7 +241,7 @@ studies. The workflows are realistic.
 
 ARIADNE-7 is the ship's computer. She is an AI with access to a
 comprehensive biological database. Her factual statements about biology
-are accurate. Her *interpretations* of data are not always correct --
+are accurate. Her interpretations of data are not always correct --
 she draws wrong conclusions from correct facts, states them
 confidently, and occasionally doubles down when challenged. This is
 intentional.
@@ -251,43 +251,10 @@ when to trust a tool and when to question it. ARIADNE-7 models the
 habit you need to develop: always ask whether the conclusion actually
 follows from the data.
 
-**To interact with ARIADNE-7:**
-
-```bash
-ariadne hello           # introduction and overview
-ariadne status          # current mission objectives
-ariadne survey          # complete the field survey form (session 1)
-ariadne submit --session N   # submit your gate question answer
-ariadne hint --session N     # hint if you are completely stuck
-ariadne log             # view your mission log
-ariadne easter_egg submit    # attempt the alien egg hunt
-```
-
-**To exit the container:**
-
-```bash
-exit
-```
-
-Or press `Ctrl+D`. These are standard bash commands, not ARIADNE-7
-commands. You return to your normal terminal on your own machine.
-Everything you saved under `/work` persists.
-
-**If ARIADNE-7's rainbow output is difficult to read:**
-
-ARIADNE-7's output uses rainbow colours by default. If this causes
-accessibility difficulties or display issues, run:
-
-```bash
-export ARIADNE_PLAIN=1
-```
-
-All subsequent ARIADNE-7 output will be plain white text. This setting
-lasts for the current container session. To restore rainbow mode:
-
-```bash
-export ARIADNE_PLAIN=0
-```
+All commands for interacting with ARIADNE-7, exiting the container,
+and adjusting her output are provided in
+[session 0: setup](https://biozelenina.github.io/signs-of-life/session_00_setup)
+once you have completed the setup. You will not need them before then.
 
 ---
 

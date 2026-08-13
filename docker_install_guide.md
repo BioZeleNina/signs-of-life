@@ -41,7 +41,7 @@ Or: Apple menu -- About This Mac -- look at the Chip or Processor line.
 
 ### Step 2 -- Download Docker Desktop
 
-Go to: https://www.docker.com/products/docker-desktop/
+Go to: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
 Click **Download for Mac** and choose the version that matches your
 chip. The file will be a `.dmg` file.
@@ -129,7 +129,7 @@ Restart your computer when prompted.
 
 ### Step 3 -- Download Docker Desktop
 
-Go to: https://www.docker.com/products/docker-desktop/
+Go to: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
 Click **Download for Windows**. The file will be a `.exe` installer.
 
@@ -189,30 +189,57 @@ docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
 ```
 
-This downloads approximately 3 GB. Then verify ARIADNE-7 is working:
+This downloads approximately 1.4 GB. You will see a series of layers
+downloading and the message `Status: Downloaded newer image` when
+complete.
 
-**On Mac:**
+On Apple Silicon Macs (M1/M2/M3/M4/M5) you will also see:
+
+```
+WARNING: The requested image's platform (linux/amd64) does not match
+the detected host platform (linux/arm64/v8)
+```
+
+This is expected and harmless. The image runs via Rosetta 2 emulation
+and works correctly.
+
+To confirm the image downloaded successfully:
 
 ```bash
-docker run --rm biozelenina/signs-of-life:latest ariadne hello
+docker images biozelenina/signs-of-life
 ```
 
-**On Windows:**
+You should see the image listed. Depending on your version of Docker
+Desktop the output may look like:
 
-```powershell
-docker run --rm biozelenina/signs-of-life:latest ariadne hello
+```
+REPOSITORY                    TAG      IMAGE ID       CREATED        SIZE
+biozelenina/signs-of-life     latest   1be205949...   ...            ...
 ```
 
-You should see a rainbow-coloured introduction from ARIADNE-7.
+or the newer Docker Desktop format:
 
-If the `ariadne` command is not found, the image may be outdated.
-Pull again: `docker pull --platform linux/amd64 biozelenina/signs-of-life:latest`
+```
+IMAGE                              ID             DISK USAGE   CONTENT SIZE
+biozelenina/signs-of-life:latest   1be205949...       5.5GB         1.4GB
+```
+
+Either format confirms the image is ready. Note that the image uses
+approximately 5--6 GB of disk space once extracted.
+ARIADNE-7 is verified in [session 0: setup](session_00_setup.md)
+once the course data folder exists.
 
 ---
 
 ## Starting a course session
 
-Each session, you mount your course data folder into the container.
+This section is here for quick reference in future sessions. If you
+have not yet completed [session 0: setup](https://biozelenina.github.io/signs-of-life/session_00_setup),
+return there first -- it walks you through the full setup including
+creating the course data folder and downloading the data.
+
+Each session, navigate to your course data folder and start the
+container:
 
 **On Mac:**
 
@@ -228,10 +255,15 @@ cd $HOME\course_data\signs-of-life
 docker run -it --rm -v "${PWD}:/work" biozelenina/signs-of-life:latest
 ```
 
-Your prompt changes to `[ARIADNE-7 | work]#` and you are ready.
+Your prompt changes to `[ARIADNE-7 | work]#`. Then type:
 
-To exit the container at any time: type `exit` or press `Ctrl+D`.
-Everything you saved in `/work` persists on your own machine.
+```bash
+ariadne hello
+```
+
+to confirm ARIADNE-7 is responding. To exit the container at any
+time: type `exit` or press `Ctrl+D`. Everything saved in `/work`
+persists on your own machine.
 
 ---
 
