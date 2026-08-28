@@ -41,7 +41,8 @@ in the materials.
   university course
 - No prior programming or bioinformatics experience required
 - A computer running macOS or Windows with at least 8 GB RAM and
-  10 GB free disk space
+  approximately 10 GB free disk space (Docker Desktop ~2 GB, course
+  image ~5.5 GB, course data ~2.4 GB)
 - Docker Desktop (installed in session 0)
 
 ---
