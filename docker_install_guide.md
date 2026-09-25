@@ -227,16 +227,24 @@ container:
 
 **On Mac:**
 
+> **Apple Silicon (M1/M2/M3/M4/M5):** always include
+> `--platform linux/amd64`. Docker Desktop uses Rosetta 2 emulation —
+> it works correctly and performance is fine for this course.
+
 ```bash
 cd ~/course_data/signs-of-life
-docker run -it --rm -v "$(pwd):/work" biozelenina/signs-of-life:latest
+docker run --platform linux/amd64 -it --rm \
+  -v "$(pwd):/work" \
+  biozelenina/signs-of-life:latest
 ```
 
 **On Windows:**
 
 ```powershell
 cd $HOME\course_data\signs-of-life
-docker run -it --rm -v "${PWD}:/work" biozelenina/signs-of-life:latest
+docker run --platform linux/amd64 -it --rm `
+  -v "${PWD}:/work" `
+  biozelenina/signs-of-life:latest
 ```
 
 Your prompt changes to `[ARIADNE-7 | work]#`. Then type:
@@ -262,9 +270,16 @@ animating (about 30--60 seconds), then try again.
 Try restarting your computer. If the problem persists, uninstall and
 reinstall Docker Desktop following the steps above.
 
-**"no matching manifest for linux/arm64/v8":**
-You forgot `--platform linux/amd64` in the pull command. Always use:
-`docker pull --platform linux/amd64 biozelenina/signs-of-life:latest`
+**"no matching manifest for linux/arm64/v8" (Apple Silicon):**
+The course image is built for `linux/amd64` only. Always add
+`--platform linux/amd64` to both `docker pull` and `docker run`:
+
+```bash
+docker pull --platform linux/amd64 biozelenina/signs-of-life:latest
+docker run --platform linux/amd64 -it --rm -v "$(pwd):/work" biozelenina/signs-of-life:latest
+```
+
+Docker Desktop handles the emulation via Rosetta 2 automatically.
 
 **"no space left on device":**
 Docker's virtual disk is full. In Docker Desktop go to

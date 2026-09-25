@@ -163,9 +163,15 @@ shows the download status for each file group.
 
 **On Mac:**
 
+> **Apple Silicon (M1/M2/M3/M4/M5):** The course image is built for
+> `linux/amd64`. Always include `--platform linux/amd64` when running
+> it. Docker Desktop uses Rosetta 2 emulation automatically — it works
+> correctly and the performance impact is minimal for this course.
+
 ```bash
 cd ~/course_data
-docker run -it --rm -v "$(pwd)/signs-of-life:/work" \
+docker run --platform linux/amd64 -it --rm \
+  -v "$(pwd)/signs-of-life:/work" \
   biozelenina/signs-of-life:latest
 ```
 
@@ -173,7 +179,8 @@ docker run -it --rm -v "$(pwd)/signs-of-life:/work" \
 
 ```powershell
 cd $HOME\course_data
-docker run -it --rm -v "${PWD}\signs-of-life:/work" `
+docker run --platform linux/amd64 -it --rm `
+  -v "${PWD}\signs-of-life:/work" `
   biozelenina/signs-of-life:latest
 ```
 
@@ -184,10 +191,6 @@ You will see a greeting from ARIADNE-7. Your prompt changes to:
 ```
 
 The container is running. You are ready.
-
-> Note: the platform warning you may see on Apple Silicon
-> (`The requested image's platform does not match...`) is expected and
-> harmless. The image runs under Rosetta emulation and works correctly.
 
 #### Step 5 -- Verify ARIADNE-7
 
@@ -315,9 +318,9 @@ team. Include the exact error message you see.
 
 | Command | What it does |
 |---|---|
-| `docker pull IMAGE` | Download or update the course image |
-| `docker run -it --rm -v "$(pwd)/signs-of-life:/work" IMAGE` | Start a container (Mac) |
-| `docker run -it --rm -v "${PWD}\signs-of-life:/work" IMAGE` | Start a container (Windows) |
+| `docker pull --platform linux/amd64 IMAGE` | Download or update the course image |
+| `docker run --platform linux/amd64 -it --rm -v "$(pwd)/signs-of-life:/work" IMAGE` | Start a container (Mac) |
+| `docker run --platform linux/amd64 -it --rm -v "${PWD}\signs-of-life:/work" IMAGE` | Start a container (Windows) |
 | `exit` or `Ctrl+D` | Stop the container and return to your own terminal |
 | `docker images` | List images you have downloaded |
 | `docker system df` | Show how much disk space Docker is using |
