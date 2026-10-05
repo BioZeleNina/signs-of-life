@@ -76,16 +76,34 @@ individual name.
 
 #### Ploidy and the mating-type locus
 
-Haploid individuals (vegetative) have clean homozygous calls at every
-site. Diploid individuals (zygotes from two haploids mating) show
+Haploid individuals (vegetative) carry one copy of each chromosome,
+so at every site they have exactly one allele. Diploid individuals
+(zygotes from two haploids mating) carry two copies and show
 heterozygous calls wherever their two parental haplotypes differ.
 
-At the mating-type locus specifically, the pattern of heterozygosity
-tells you which two mating types were involved in the cross. An
-individual that is homozygous in the first 24 bp of the cassette but
-heterozygous in the second 24 bp was produced by a cross involving
-a Type II individual (whose cassette is a chimera: Type I units in
-the first half, Type III units in the second half).
+Variant callers assume diploidy unless told otherwise. If a haploid
+is called as diploid, sequencing errors and collapsed repeats can
+produce heterozygous calls that cannot be real. In the main mission
+you will tell bcftools which individuals are haploid.
+
+In a PCA, a diploid hybrid should sit roughly halfway between the
+clusters of its two parents, because it carries one haplotype from
+each.
+
+At the mating-type locus, the pattern of heterozygosity tells you
+which two mating types were involved in the cross. Remember that
+the Type II cassette is a chimera: Type I units in the first half,
+Type III units in the second half.
+
+| Cross | First 24 bp | Second 24 bp |
+|---|---|---|
+| I x II | homozygous (Type I units in both) | heterozygous |
+| II x III | heterozygous | homozygous (Type III units in both) |
+| I x III | heterozygous | heterozygous |
+
+In this mission the cassette is not in the assembly, so you will
+not see these patterns in your VCF. Instead, you will look for the
+cassette directly in the reads in Step 6.
 
 #### Cassette extraction and resonance
 
@@ -245,14 +263,57 @@ This takes 15--25 minutes for all 15 individuals.
 
 #### Step 3 -- Call variants
 
+First, tell bcftools the ploidy of each individual. The samples
+file has two columns: the sample name and its ploidy. Without read
+groups, bcftools names each sample after its BAM file, so the file
+can be built from the list of BAM files. Diploid names contain
+`_D0`; everyone else is haploid:
+
+```bash
+ls session_07/alignments/*.bam \
+  | awk '{print $0 "\t" (($0 ~ /_D0/) ? 2 : 1)}' \
+  > session_07/ploidy.txt
+
+cat session_07/ploidy.txt
+```
+
+Check that the six `_D0` individuals have a 2 and the other nine a 1.
+Now call variants:
+
 ```bash
 bcftools mpileup \
   -f session_03/assembly/contigs.fasta \
   session_07/alignments/*.bam \
-  | bcftools call -mv -o session_07/vcf/variants.vcf
+  | bcftools call -mv \
+    -S session_07/ploidy.txt \
+    -o session_07/vcf/variants.vcf
 
 bcftools stats session_07/vcf/variants.vcf | grep "^SN"
 ```
+
+How many SNPs and how many indels were called? Many of the indels
+are not real differences between individuals. They are positions
+where the assembly itself has an error, so every individual
+disagrees with it. For population structure we keep only
+**biallelic SNPs** (sites with exactly one alternative base):
+
+```bash
+bcftools view -v snps -m2 -M2 \
+  session_07/vcf/variants.vcf \
+  -o session_07/vcf/snps.vcf
+
+bcftools stats session_07/vcf/snps.vcf | grep "^SN"
+```
+
+`-v snps` keeps SNPs only; `-m2 -M2` keeps sites with exactly two
+alleles. Look at a few genotype calls:
+
+```bash
+grep -v "^#" session_07/vcf/snps.vcf | head -3 | cut -f 10-
+```
+
+Haploid genotypes are now written with a single allele (`0` or `1`)
+and diploid genotypes with two (`0/0`, `0/1`, `1/1`).
 
 #### Step 4 -- Build the genotype matrix
 
@@ -260,8 +321,11 @@ bcftools stats session_07/vcf/variants.vcf | grep "^SN"
 python3 -c "
 import csv
 
-samples, sites = [], []
-with open('session_07/vcf/variants.vcf') as f:
+code = {'0': 0, '1': 2,
+        '0/0': 0, '0/1': 1, '1/0': 1, '1/1': 2}
+
+samples, sites, skipped = [], [], 0
+with open('session_07/vcf/snps.vcf') as f:
     for line in f:
         if line.startswith('##'):
             continue
@@ -269,19 +333,29 @@ with open('session_07/vcf/variants.vcf') as f:
         if line.startswith('#CHROM'):
             samples = cols[9:]
             continue
-        gts = []
-        for field in cols[9:]:
-            gt = field.split(':')[0].replace('|','/')
-            gts.append({'0/0':0,'0/1':1,'1/0':1,'1/1':2}.get(gt, 0))
-        sites.append([cols[0]+':'+cols[1]] + gts)
+        gts = [code.get(field.split(':')[0].replace('|', '/'))
+               for field in cols[9:]]
+        if None in gts:
+            skipped += 1
+            continue
+        sites.append([cols[0] + ':' + cols[1]] + gts)
 
 with open('session_07/results/genotype_matrix.csv', 'w', newline='') as f:
     w = csv.writer(f)
     w.writerow(['pos'] + samples)
     w.writerows(sites)
 print(f'{len(sites)} variant sites x {len(samples)} individuals')
+print(f'{skipped} sites skipped because of a missing genotype')
 "
 ```
+
+Each genotype becomes a number: how many copies of the alternative
+allele, scaled so that haploids and diploids are comparable. A
+haploid carrying the alternative allele (`1`) counts as 2, the same
+as a diploid homozygous for it (`1/1`); a diploid heterozygote
+(`0/1`) counts as 1, halfway between its two parents. Sites where
+any individual has a missing genotype (`.`) are skipped rather than
+guessed.
 
 #### Step 5 -- Cluster individuals by genotype
 
@@ -295,9 +369,10 @@ cluster_population \
 
 Open `session_07/results/population_clusters.html` from your own
 machine. Hover over each point to see the individual name. How many
-clusters? Which individuals are in each cluster? Do the diploid
-individuals (names containing `_D`) sit at the boundaries between
-clusters?
+clusters? Which individuals are in each cluster? Where do the diploid
+individuals (names containing `_D`) sit relative to the haploid
+clusters? Does each diploid lie between the two mating types in its
+name?
 
 #### Step 6 -- Find the mating-type cassette
 
@@ -363,16 +438,22 @@ The `awk` command takes the most abundant candidate that is not the
 Type I reference. Look at the sequence: does it repeat cleanly all
 the way through?
 
-*Optional:* which individuals carry this cassette? Count the reads
-containing its second half in each individual and compare with the
-names (`_typeI`, `_IxII`, ...) and with your clusters from Step 5.
+*Optional:* which individuals carry this cassette? Its second half
+alone is not unique: Type III cassettes contain the same units. What
+is unique is the **junction**, where the first-half units meet the
+second-half units. Count the reads containing the middle 24 bp in
+each individual and compare with the names (`_typeI`, `_IxII`, ...)
+and with your clusters from Step 5:
 
 ```bash
-HALF2=${MY_CASSETTE:24:24}
+JUNCTION=${MY_CASSETTE:12:24}
 for FILE in population/ind_*_R1.fq; do
-  echo "$(basename ${FILE} _R1.fq): $(grep -c ${HALF2} ${FILE})"
+  echo "$(basename ${FILE} _R1.fq): $(grep -c ${JUNCTION} ${FILE})"
 done
 ```
+
+Which individuals have reads spanning the junction? Which crosses
+should, according to the table in the lecture?
 
 (This counts forward-strand matches in R1 only, so treat the numbers
 as a lower bound.)
@@ -482,6 +563,8 @@ ariadne submit --session 7
 | `minimap2 -ax sr ref.fasta R1.fq R2.fq \| samtools sort -o out.bam` | Align paired reads |
 | `samtools index file.bam` | Index a BAM file |
 | `bcftools mpileup -f ref.fasta *.bam \| bcftools call -mv -o out.vcf` | Call variants |
+| `bcftools call -mv -S ploidy.txt` | Call variants with per-sample ploidy |
+| `bcftools view -v snps -m2 -M2 in.vcf -o out.vcf` | Keep biallelic SNPs only |
 | `bcftools stats file.vcf \| grep "^SN"` | Summary statistics from VCF |
 | `seqkit locate -i -p PATTERN assembly.fasta` | Find a sequence pattern (case-insensitive) |
 | `seqkit seq -s -w 0 reads.fq` | Print reads as plain sequences |
